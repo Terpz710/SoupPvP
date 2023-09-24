@@ -16,16 +16,22 @@ class Main extends PluginBase implements Listener {
     }
 
     public function onPlayerInteract(PlayerInteractEvent $event) {
-        $player = $event->getPlayer();
-        $item = $event->getItem();
+    $player = $event->getPlayer();
+    $item = $event->getItem();
 
-        if ($event->getAction() === PlayerInteractEvent::RIGHT_CLICK_BLOCK && $item instanceof MushroomStew) {
-            $event->cancel();
-            $player->setHealth($player->getHealth() + 4);
-            $player->sendMessage("Healed §b4§r total hearts!");
+    if ($event->getAction() === PlayerInteractEvent::RIGHT_CLICK_BLOCK && $item instanceof MushroomStew) {
+        $event->cancel();
+
+        if ($player->getHealth() < $player->getMaxHealth()) {
+            $healAmount = min(4, $player->getMaxHealth() - $player->getHealth());
+            $player->setHealth($player->getHealth() + $healAmount);
+            $player->sendMessage("Healed§b $healAmount §rtotal hearts!");
             $player->getInventory()->removeItem($item);
+        } else {
+            $player->sendMessage("You have full health already!");
         }
     }
+}
 
     public function onPlayerItemConsume(PlayerItemConsumeEvent $event) {
         $player = $event->getPlayer();
