@@ -1,0 +1,6 @@
+name: SoupPvP
+version: 1.0.0
+main: Terpz710\SoupPvP\Main
+api: 5.0.0
+author: Terpz710
+description: A PocketMine plugin for Soup PvP.
