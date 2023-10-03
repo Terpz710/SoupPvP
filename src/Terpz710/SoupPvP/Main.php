@@ -28,7 +28,7 @@ class Main extends PluginBase implements Listener {
             $player->sendMessage("Healed§b $healAmount §rtotal hearts!");
             $player->getInventory()->removeItem($item);
         } else {
-            $player->sendMessage("You have full health already!");
+            $player->sendMessage("You have §bfull health§r already!");
         }
     }
 }
