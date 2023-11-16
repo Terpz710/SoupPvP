@@ -8,7 +8,6 @@ use pocketmine\event\player\PlayerItemConsumeEvent;
 use pocketmine\item\MushroomStew;
 use pocketmine\plugin\PluginBase;
 use pocketmine\player\Player;
-use pocketmine\world\World;
 
 class Main extends PluginBase implements Listener {
 
@@ -22,7 +21,7 @@ class Main extends PluginBase implements Listener {
         $this->allowedWorlds = $this->getConfig()->get("allowedWorlds", []);
     }
 
-    public function onPlayerInteract(PlayerInteractEvent $event) {
+    public function onPlayerInteract(PlayerInteractEvent $event): void {
         $player = $event->getPlayer();
         $item = $event->getItem();
 
@@ -42,15 +41,17 @@ class Main extends PluginBase implements Listener {
         }
     }
 
-    public function onPlayerItemConsume(PlayerItemConsumeEvent $event) {
+    public function onPlayerItemConsume(PlayerItemConsumeEvent $event): void {
         $player = $event->getPlayer();
         $item = $event->getItem();
 
-        if ($item instanceof MushroomStew && !$this->isPlayerInAllowedWorld($player)) 
+        if ($item instanceof MushroomStew && !$this->isPlayerInAllowedWorld($player)) {
             $event->cancel();
         }
+    }
 
-    private function isPlayerInAllowedWorld(Player $player): bool {
-        return in_array($sender->getWorld()->getFolderName());
+    private function isPlayerInAllowedWorld(Player $sender): bool {
+        $world = $sender->getWorld();
+        return in_array($world->getFolderName(), $this->allowedWorlds);
     }
 }
