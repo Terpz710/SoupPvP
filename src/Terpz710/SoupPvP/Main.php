@@ -53,5 +53,3 @@ class Main extends PluginBase implements Listener {
     private function isPlayerInAllowedWorld(Player $player): bool {
         return in_array($player->getWorld()->getName(), $this->allowedWorlds, true);
     }
-}
-
