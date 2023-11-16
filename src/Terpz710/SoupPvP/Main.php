@@ -8,6 +8,7 @@ use pocketmine\event\player\PlayerItemConsumeEvent;
 use pocketmine\item\MushroomStew;
 use pocketmine\plugin\PluginBase;
 use pocketmine\player\Player;
+use pocketmine\world\World;
 
 class Main extends PluginBase implements Listener {
 
