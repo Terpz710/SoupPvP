@@ -1,0 +1,17 @@
+# Terpz710 waz here :p
+
+# An example on how to use this plugin. 
+# First set up a PvP warp then in the world you choose to have your arena put it into the allowed worlds array listed below. Have a SoupPvP specific kit and boom. You got yourself a soup pvp gamemode. Its mostly like FFA soup pvp but its still SoupPvP.
+# Ill keep updating it.
+
+# Upcoming features:
+# 1v1 soup pvp
+# Many more.
+
+# Add as many worlds as needed.
+
+allowedWorlds:
+  - Hub
+  - World
+  - Lobby
+  - Arena
