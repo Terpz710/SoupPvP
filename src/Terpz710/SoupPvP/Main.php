@@ -8,6 +8,7 @@ use pocketmine\event\player\PlayerItemConsumeEvent;
 use pocketmine\item\MushroomStew;
 use pocketmine\plugin\PluginBase;
 use pocketmine\player\Player;
+use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener {
 
@@ -17,6 +18,8 @@ class Main extends PluginBase implements Listener {
     public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
+        $this->saveResource("worlds.yml");
+        $this->config = new Config($this->getDataFolder() . "worlds.yml", Config::YAML);
         $this->saveDefaultConfig();
         $this->allowedWorlds = $this->getConfig()->get("allowedWorlds", []);
     }
