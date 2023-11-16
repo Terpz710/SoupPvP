@@ -14,6 +14,8 @@ class Main extends PluginBase implements Listener {
 
     /** @var array */
     private $allowedWorlds = [];
+    /** @var Config */
+    private $config;
 
     public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
