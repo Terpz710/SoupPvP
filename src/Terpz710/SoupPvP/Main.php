@@ -48,8 +48,8 @@ class Main extends PluginBase implements Listener {
         if ($item instanceof MushroomStew && !$this->isPlayerInAllowedWorld($player)) 
             $event->cancel();
         }
-    }
 
     private function isPlayerInAllowedWorld(Player $player): bool {
         return in_array($player->getWorld()->getName(), $this->allowedWorlds, true);
     }
+}
