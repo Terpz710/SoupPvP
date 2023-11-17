@@ -24,7 +24,6 @@ class Main extends PluginBase implements Listener {
         $this->config = new Config($this->getDataFolder() . "worlds.yml", Config::YAML);
         $this->saveDefaultConfig();
 
-        // Get allowed worlds from the worlds.yml file
         $this->allowedWorlds = $this->config->get("allowedWorlds", []);
     }
 
